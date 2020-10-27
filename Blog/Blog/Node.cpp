@@ -69,14 +69,16 @@ void Node::Print(string levelsSpace)
 void Node::DeleteResponse(string content)
 {
 	// Iterate over the list and search content
-	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+	list<Node>::iterator it = m_responses.begin();
+	while ( it != m_responses.end())
 	{
 		if ((*it).GetContent().find(content) != -1)
 		{
 			(*it).Delete();
-			m_responses.remove(*it);
+			m_responses.erase(it++);
+			//m_responses.remove(*it);
 		}
 		else
-			(*it).DeleteResponse(content);
+			(*it++).DeleteResponse(content);
 	}
 }
