@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <list>
+#include <iostream>
 
 using namespace std;
 class Node
@@ -19,5 +20,7 @@ public:
 	void AddNewResponse(Node response);
 	void Delete();
 	Node* SearchContent(string content);
+	void Print(string levelsSpace = "");
+	void DeleteResponse(string content);
 };
 

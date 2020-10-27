@@ -44,13 +44,39 @@ void Node::Delete()
 
 Node* Node::SearchContent(string content)
 {
-	if (m_content.find(content, sizeof(content)) != -1)
+	if (m_content.find(content) != -1)
 		return this;
 
 	// Iterate over the list and search content
-	for (Node val : m_responses)
-		if (val.SearchContent(content))
-			return &val;
+	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+	{
+		if ((*it).SearchContent(content))
+			return &(*it);
+	}
 
 	return nullptr;
+}
+
+void Node::Print(string levelsSpace)
+{
+	std::cout << levelsSpace << m_content << std::endl;
+
+	// Iterate over the list and print content
+	for (Node val : m_responses)
+		val.Print(levelsSpace + "   ");
+}
+
+void Node::DeleteResponse(string content)
+{
+	// Iterate over the list and search content
+	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+	{
+		if ((*it).GetContent().find(content) != -1)
+		{
+			(*it).Delete();
+			m_responses.remove(*it);
+		}
+		else
+			(*it).DeleteResponse(content);
+	}
 }

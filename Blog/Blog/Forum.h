@@ -10,6 +10,10 @@ public:
 	Forum();
 	~Forum();
 	void StartDiscussion(string content);
-	Node* SearchResponse(string content);
+	Node* SearchContent(string content);
+	void AddSon(string content, string ancestorContent);
+	void DeleteResponse(string content);
+	void PrintDiscussion();
+	void PrintDiscussionResponse(string content);
 };
 
