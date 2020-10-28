@@ -14,6 +14,7 @@ public:
 	void AddSon(string content, string ancestorContent);
 	void DeleteResponse(string content);
 	void PrintDiscussion();
-	void PrintDiscussionResponse(string content);
+	void PrintResponseDiscussion(string content);
+	void PrintResponseAncestors(string content);
 };
 

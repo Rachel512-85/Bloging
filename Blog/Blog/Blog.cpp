@@ -28,8 +28,9 @@ int main()
     f.AddSon("wow I am happy you are", "fine4 thanks");
     f.AddSon("wow I am happy you are", "fine7 thanks");
     f.PrintDiscussion();
-    f.DeleteResponse("wow I am happy you are");
-    f.PrintDiscussion();
+    f.PrintResponseAncestors("wow I am happy you are");
+    //f.DeleteResponse("wow I am happy you are");
+    //f.PrintDiscussion();
 
     return 0;
 }

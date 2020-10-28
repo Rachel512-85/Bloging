@@ -22,5 +22,6 @@ public:
 	Node* SearchContent(string content);
 	void Print(string levelsSpace = "");
 	void DeleteResponse(string content);
+	void PrintAncestors(string content, string levelsSpace = "");
 };
 

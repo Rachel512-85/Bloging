@@ -82,3 +82,16 @@ void Node::DeleteResponse(string content)
 			(*it++).DeleteResponse(content);
 	}
 }
+
+void Node::PrintAncestors(string content, string levelsSpace)
+{
+
+	if (SearchContent(content))
+		std::cout << levelsSpace << m_content << std::endl;
+	else
+		return;
+
+	// Iterate over the list and print content
+	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+		(*it).PrintAncestors(content, levelsSpace + "   ");
+}

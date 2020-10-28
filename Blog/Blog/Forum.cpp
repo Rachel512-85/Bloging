@@ -38,7 +38,12 @@ void Forum::PrintDiscussion()
 	m_discussion->Print();
 }
 
-void Forum::PrintDiscussionResponse(string content)
+void Forum::PrintResponseDiscussion(string content)
 {
 	SearchContent(content)->Print();
+}
+
+void Forum::PrintResponseAncestors(string content)
+{
+	m_discussion->PrintAncestors(content);
 }
