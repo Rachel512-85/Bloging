@@ -9,6 +9,7 @@ private:
 public:
 	Forum();
 	~Forum();
+	Node* GetDiscussionTree();
 	void StartDiscussion(string content);
 	Node* SearchContent(string content);
 	void AddSon(string content, string ancestorContent);

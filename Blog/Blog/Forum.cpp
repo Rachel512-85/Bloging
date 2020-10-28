@@ -11,6 +11,11 @@ Forum::~Forum()
 	m_discussion = nullptr;
 }
 
+Node* Forum::GetDiscussionTree()
+{
+	return m_discussion;
+}
+
 void Forum::StartDiscussion(string content)
 {
 	m_discussion->InitiateContent(content);

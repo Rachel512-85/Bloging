@@ -1,47 +1,45 @@
-// Blog.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <list>
 #include <string>
-#include "Forum.h"
+#include "ForumList.h"
 
 using namespace std;
 int main()
 {
-    Forum f;
-    f.StartDiscussion("hello how are you?");
-    //string m_content = "hello how are you?";
-    //int size = sizeof("hello how are you?");
-    //int find = m_content.find("hello how are you?1");
-    //if (find != -1)
-    //    return 0;
-    f.AddSon("fine1 thanks", "hello how are you?");
-    f.AddSon("fine2 thanks", "hello how are you?");
-    f.AddSon("fine3 thanks", "hello how are you?");
-    f.AddSon("fine4 thanks", "hello how are you?");
-    f.AddSon("fine5 thanks", "hello how are you?");
-    f.AddSon("fine6 thanks", "hello how are you?");
-    f.AddSon("fine7 thanks", "hello how are you?");
-    f.AddSon("fine8 thanks", "hello how are you?");
-    f.AddSon("fine9 thanks", "hello how are you?");
-    f.AddSon("fine0 thanks", "hello how are you?");
-    f.AddSon("wow I am happy you are", "fine4 thanks");
-    f.AddSon("wow I am happy you are", "fine7 thanks");
-    f.PrintDiscussion();
-    f.PrintResponseAncestors("wow I am happy you are");
-    //f.DeleteResponse("wow I am happy you are");
-    //f.PrintDiscussion();
-
-    return 0;
+	ForumList tl;
+	string title, father, val, son;
+	char ch;
+	cout << "\nDISCUSSION TREE\n";
+	cout << "Choose one of the following:" << endl;
+	cout << "n: New discussion tree" << endl;
+	cout << "s: Add a new response" << endl;
+	cout << "d: Delete a sub-discussion" << endl;
+	cout << "p: Print all discussion trees" << endl;
+	cout << "r: Print a sub-tree" << endl;
+	cout << "w: Search a string in all discussion trees" << endl;
+	cout << "e: exit:" << endl;
+	do
+	{
+		cin >> ch;
+		switch (ch)
+		{
+		case 'n':cout << "enter the discussion title (with no space) "; cin >> val; tl.NewDiscussion(val); break;
+		case 's':cout << "enter the discussion title (with no space) "; cin >> title;
+			cout << "enter the last message (with no space) "; cin >> father;
+			cout << "enter the new respond "; cin >> son;
+			if (tl.AddResponse(title, father, son)) cout << "success\n"; else cout << "ERROR\n"; break;
+		case 'd':cout << "enter the discussion title (with no space) "; cin >> title;
+			cout << "enter string of subtree to delete (with no space) "; cin >> val;
+			if (tl.DeleteResponse(title, val)) cout << "success\n"; else cout << "ERROR\n"; break;
+		case 'p':tl.PrintAllDiscussion();  break;
+		case 'r':
+			cout << "enter the discussion title (with no space) "; cin >> title;
+			cout << "enter the last message (with no space) "; cin >> val;
+			tl.PrintSubDiscussion(title, val); cout << endl;  break;
+		case 'w':cout << "enter a string (with no space) "; cin >> val;
+			tl.PrintResponseAncestors(val); cout << endl;  break;
+		case 'e':cout << "bye "; break;
+		default: cout << "ERROR\n";  break;
+		}
+	} while (ch != 'e');
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
