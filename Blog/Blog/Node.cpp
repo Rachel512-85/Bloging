@@ -44,17 +44,17 @@ void Node::Delete()
 
 Node* Node::SearchContent(string content)
 {
-	if (m_content.find(content) != -1)
+	if (m_content == content)
 		return this;
 
 	// Iterate over the list and search content
 	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
 	{
 		if ((*it).SearchContent(content))
-			return &(*it);
+			return (*it).SearchContent(content);
 	}
 
-	return nullptr;
+	return NULL;//nullptr;
 }
 
 void Node::Print(string levelsSpace)
@@ -62,40 +62,41 @@ void Node::Print(string levelsSpace)
 	std::cout << levelsSpace << m_content << std::endl;
 
 	// Iterate over the list and print content
-	for (Node val : m_responses)
-		val.Print(levelsSpace + "   ");
+	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+		(*it).Print(levelsSpace + "   ");
 }
 
-void Node::DeleteResponse(string content)
+bool Node::DeleteResponse(string content)
 {
 	// Iterate over the list and search content
 	list<Node>::iterator it = m_responses.begin();
 	while ( it != m_responses.end())
 	{
-		if ((*it).GetContent().find(content) != -1)
+		if ((*it).GetContent() == content)
 		{
 			(*it).Delete();
 			m_responses.erase(it++);
-			//m_responses.remove(*it);
+			return true;
 		}
 		else
-			(*it++).DeleteResponse(content);
+			if ((*it++).DeleteResponse(content))
+				return true;
 	}
+	return false;
 }
 
-bool Node::PrintAncestors(string content, string levelsSpace)
+bool Node::PrintAncestors(string content, string levelPointer)
 {
-
 	if (SearchContent(content))
-		std::cout << levelsSpace << m_content << std::endl;
-	else
-		return false;
-
-	// Iterate over the list and print content
-	for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
 	{
-		if((*it).PrintAncestors(content, levelsSpace + "   "))
-			return true;
+		// Iterate over the list and print content
+		for (list<Node>::iterator it = m_responses.begin(); it != m_responses.end(); it++)
+		{
+			if ((*it).PrintAncestors(content, "=>"))
+				break;
+		}
+		std::cout << m_content << levelPointer;
+		return true;
 	}
-	return true;
+	return false;
 }

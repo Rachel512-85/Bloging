@@ -8,7 +8,7 @@ Forum::Forum()
 Forum::~Forum()
 {
 	m_discussion->Delete();
-	m_discussion = nullptr;
+	m_discussion = NULL;// nullptr;
 }
 
 Node* Forum::GetDiscussionTree()
@@ -26,16 +26,20 @@ Node* Forum::SearchContent(string content)
 	return m_discussion->SearchContent(content);
 }
 
-void Forum::AddSon(string content, string ancestorContent)
+bool Forum::AddSon(string content, string ancestorContent)
 {
 	Node* ancestor = SearchContent(ancestorContent);
-	if(ancestor)
+	if (ancestor)
+	{
 		ancestor->AddNewResponse(content);
+		return true;
+	}
+	return false;
 }
 
-void Forum::DeleteResponse(string content)
+bool Forum::DeleteResponse(string content)
 {
-	m_discussion->DeleteResponse(content);
+	return m_discussion->DeleteResponse(content);
 }
 
 void Forum::PrintDiscussion()
@@ -45,7 +49,11 @@ void Forum::PrintDiscussion()
 
 void Forum::PrintResponseDiscussion(string content)
 {
-	SearchContent(content)->Print();
+	Node* ancestor = SearchContent(content);
+	if (ancestor)
+	{
+		ancestor->Print();
+	}
 }
 
 void Forum::PrintResponseAncestors(string content)

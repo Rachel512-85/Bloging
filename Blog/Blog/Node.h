@@ -21,7 +21,7 @@ public:
 	void Delete();
 	Node* SearchContent(string content);
 	void Print(string levelsSpace = "");
-	void DeleteResponse(string content);
-	bool PrintAncestors(string content, string levelsSpace = "");
+	bool DeleteResponse(string content);
+	bool PrintAncestors(string content, string levelPointer = "\n");
 };
 

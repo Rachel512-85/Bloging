@@ -12,8 +12,8 @@ public:
 	Node* GetDiscussionTree();
 	void StartDiscussion(string content);
 	Node* SearchContent(string content);
-	void AddSon(string content, string ancestorContent);
-	void DeleteResponse(string content);
+	bool AddSon(string content, string ancestorContent);
+	bool DeleteResponse(string content);
 	void PrintDiscussion();
 	void PrintResponseDiscussion(string content);
 	void PrintResponseAncestors(string content);

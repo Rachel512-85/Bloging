@@ -12,7 +12,7 @@ public:
 	void NewDiscussion();
 	void NewDiscussion(string content);
 	void DeleteDiscussion(Node* discussion);
-	void PrintResponseAncestors(string content);
+	bool PrintResponseAncestors(string content);
 	bool AddResponse(string firstContent, string responseTo, string myResponse);
 	bool DeleteResponse(string firstContent, string response);
 	void PrintDiscussion(string firstContent);

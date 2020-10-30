@@ -1,3 +1,5 @@
+//Rachel Ankonina
+//313132375
 #include <iostream>
 #include <list>
 #include <string>
@@ -37,7 +39,7 @@ int main()
 			cout << "enter the last message (with no space) "; cin >> val;
 			tl.PrintSubDiscussion(title, val); cout << endl;  break;
 		case 'w':cout << "enter a string (with no space) "; cin >> val;
-			tl.PrintResponseAncestors(val); cout << endl;  break;
+			if (tl.PrintResponseAncestors(val)) cout << "\n"; else cout << "ERROR\n"; break;
 		case 'e':cout << "bye "; break;
 		default: cout << "ERROR\n";  break;
 		}
