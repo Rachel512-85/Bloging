@@ -1,5 +1,7 @@
 //Rachel Ankonina
 //313132375
+//Sara Amsalem
+//316375880
 #include <iostream>
 #include <list>
 #include <string>
