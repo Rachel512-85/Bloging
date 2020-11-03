@@ -1,6 +1,6 @@
 //Rachel Ankonina
 //313132375
-//Sara Amsalem
+//Sara Amsalem Cohen
 //316375880
 #include <iostream>
 #include <list>
