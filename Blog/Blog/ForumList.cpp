@@ -107,7 +107,31 @@ void ForumList::PrintAllDiscussion()
 	// Iterate over the list
 	for (list<Forum>::iterator it = m_list.begin(); it != m_list.end(); it++)
 	{
-		std::cout << "Tree #" << counter++ << std::endl;
+		//std::cout << "Tree #" << counter++ << std::endl;
 		(*it).PrintDiscussion();
+	}
+}
+
+void ForumList::PrintNFirstDiscussions(int n)
+{
+	int counter = 1;
+	// Iterate over the list
+	for (list<Forum>::iterator it = m_list.begin(); it != m_list.end(); it++)
+	{
+		//std::cout << "Tree #" << counter << std::endl;
+		(*it).PrintDiscussion();
+		if (counter++ == n)
+			return;
+	}
+}
+
+void ForumList::PrintTitles()
+{
+	int counter = 1;
+	// Iterate over the list
+	for (list<Forum>::iterator it = m_list.begin(); it != m_list.end(); it++)
+	{
+		//std::cout << "Title #" << counter++ << std::endl;
+		std::cout << (*it).GetDiscussionTree()->GetContent() << std::endl;
 	}
 }

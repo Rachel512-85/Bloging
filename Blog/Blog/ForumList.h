@@ -18,5 +18,7 @@ public:
 	void PrintDiscussion(string firstContent);
 	void PrintSubDiscussion(string firstContent, string resonse);
 	void PrintAllDiscussion();
+	void PrintNFirstDiscussions(int n);
+	void PrintTitles();
 };
 

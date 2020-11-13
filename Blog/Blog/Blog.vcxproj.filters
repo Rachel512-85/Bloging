@@ -27,6 +27,12 @@
     <ClCompile Include="ForumList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HSubject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IHashTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ForumList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HSubject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IHashTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

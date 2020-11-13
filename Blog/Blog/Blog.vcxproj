@@ -142,11 +142,15 @@
     <ClCompile Include="Blog.cpp" />
     <ClCompile Include="Forum.cpp" />
     <ClCompile Include="ForumList.cpp" />
+    <ClCompile Include="IHashTable.cpp" />
+    <ClCompile Include="HSubject.cpp" />
     <ClCompile Include="Node.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Forum.h" />
     <ClInclude Include="ForumList.h" />
+    <ClInclude Include="IHashTable.h" />
+    <ClInclude Include="HSubject.h" />
     <ClInclude Include="Node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
