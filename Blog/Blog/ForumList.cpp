@@ -118,10 +118,10 @@ void ForumList::PrintNFirstDiscussions(int n)
 	// Iterate over the list
 	for (list<Forum>::iterator it = m_list.begin(); it != m_list.end(); it++)
 	{
-		//std::cout << "Tree #" << counter << std::endl;
-		(*it).PrintDiscussion();
-		if (counter++ == n)
+		if (counter > n)
 			return;
+		(*it).PrintDiscussion();
+		counter++;
 	}
 }
 

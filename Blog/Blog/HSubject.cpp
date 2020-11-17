@@ -2,12 +2,18 @@
 
 int HSubject::h1(string subject)
 {
-	return 0;
+	short checksum = 0;
+	for (int i = 0; i < subject.length(); i++)
+	{
+		checksum += subject.at(i);
+	}
+	return checksum % m_realSize;
 }
 
 int HSubject::h2(string subject, int i)
 {
-	return i;
+	int key = subject.length();
+	return key;
 }
 
 void HSubject::PrintSubjectForumList(string subject)
@@ -74,7 +80,6 @@ void HSubject::Print()
 		{
 			cout << m_Table[i].key << ":" << endl;
 			m_Table[i].data.PrintAllDiscussion();
-			cout << endl;
 		}
 	}
 }

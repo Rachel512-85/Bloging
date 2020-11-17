@@ -54,7 +54,7 @@ public:
 		return (h1(key) + i * h2(key,i)) % m_realSize;
 	};
 	virtual int Search(K key) {
-		for (int i = 0; m_Table[Hash(key, i)].flag != eEmpty; i++)
+		for (int i = 0; m_Table[Hash(key, i)].flag != eEmpty && i < m_realSize; i++)
 		{
 			if (m_Table[Hash(key, i)].key == key)
 				return Hash(key, i);
