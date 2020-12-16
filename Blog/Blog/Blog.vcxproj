@@ -142,9 +142,9 @@
     <ClCompile Include="Blog.cpp" />
     <ClCompile Include="Forum.cpp" />
     <ClCompile Include="ForumList.cpp" />
-    <ClCompile Include="IHashTable.cpp" />
     <ClCompile Include="HSubject.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Forum.h" />
@@ -152,6 +152,7 @@
     <ClInclude Include="IHashTable.h" />
     <ClInclude Include="HSubject.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Trie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
