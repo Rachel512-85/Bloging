@@ -143,12 +143,16 @@
     <ClCompile Include="Forum.cpp" />
     <ClCompile Include="ForumList.cpp" />
     <ClCompile Include="HSubject.cpp" />
+    <ClCompile Include="HuffmanCode.cpp" />
+    <ClCompile Include="HuffmanNode.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Forum.h" />
     <ClInclude Include="ForumList.h" />
+    <ClInclude Include="HuffmanCode.h" />
+    <ClInclude Include="HuffmanNode.h" />
     <ClInclude Include="IHashTable.h" />
     <ClInclude Include="HSubject.h" />
     <ClInclude Include="Node.h" />
