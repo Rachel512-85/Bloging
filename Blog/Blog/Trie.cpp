@@ -35,11 +35,14 @@ bool Trie::DeleteWord(string str)
 			return false;
 		ptr = ptr->m_Children[str[i] - 'a'];
 	}
+	//if we finish running over the word but the last letter isn't marked as last
 	if (ptr->m_IsEndWord == false)
 		return false;
+	//delete the word from the trie
 	for (int i = str.length() - 1; ptr != m_root; i--)
 	{
 		bool isOfAnotherWord = false;
+		//check if this letter belong to another word 
 		for (int i = 0; i < ALPHABET && isOfAnotherWord == false; i++)
 		{
 			if (ptr->m_Children[i])
@@ -89,6 +92,7 @@ int Trie::PrintAllWordsFromPrefix(string str)
 
 int Trie::PrintAllWordsFromPrefix(string str, TrieNode* node)
 {
+	//if we reach to the end of word we print it, else, we continue to all the sons.
 	int sumOfWords = 0;
 	if (node->m_IsEndWord)
 	{
